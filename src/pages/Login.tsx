@@ -13,56 +13,84 @@ function App() {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-teal-500">
-            <div className="bg-gray-200 p-6 rounded-lg w-80">
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log(form);
+        alert("Submitted!");
+    };
 
-                <h2 className="text-xl font-bold text-center mb-4">
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-500 to-cyan-600">
+
+            {/* Form Card */}
+            <div className="bg-gray-100 w-[420px] p-8 rounded-xl shadow-md">
+
+                {/* Title */}
+                <h2 className="text-3xl font-bold text-center mb-6">
                     Registration Form
                 </h2>
 
-                <input
-                    name="name"
-                    placeholder="Name*"
-                    onChange={handleChange}
-                    className="w-full mb-3 p-2 bg-gray-300 rounded"
-                />
+                <form onSubmit={handleSubmit} className="space-y-4">
 
-                <input
-                    name="email"
-                    placeholder="Email*"
-                    onChange={handleChange}
-                    className="w-full mb-3 p-2 bg-gray-300 rounded"
-                />
+                    {/* Name */}
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name*"
+                        onChange={handleChange}
+                        className="w-full p-3 bg-gray-300 rounded-md outline-none"
+                    />
 
-                <input
-                    name="phone"
-                    placeholder="Phone*"
-                    onChange={handleChange}
-                    className="w-full mb-3 p-2 bg-gray-300 rounded"
-                />
+                    {/* Email */}
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email*"
+                        onChange={handleChange}
+                        className="w-full p-3 bg-gray-300 rounded-md outline-none"
+                    />
 
-                <select
-                    name="subject"
-                    onChange={handleChange}
-                    className="w-full mb-3 p-2 bg-gray-300 rounded"
-                >
-                    <option>Subject*</option>
-                    <option>General</option>
-                    <option>Support</option>
-                </select>
+                    {/* Phone */}
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone*"
+                        onChange={handleChange}
+                        className="w-full p-3 bg-gray-300 rounded-md outline-none"
+                    />
 
-                <textarea
-                    name="message"
-                    placeholder="Message*"
-                    onChange={handleChange}
-                    className="w-full mb-3 p-2 bg-gray-300 rounded"
-                />
+                    {/* Subject Dropdown */}
+                    <select
+                        name="subject"
+                        onChange={handleChange}
+                        className="w-full p-3 bg-gray-300 rounded-md outline-none"
+                    >
+                        <option value="">Subject*</option>
+                        <option value="general">General</option>
+                        <option value="support">Support</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
 
-                <button className="w-full bg-teal-700 text-white p-2 rounded">
-                    Submit
-                </button>
+                    {/* Message */}
+                    <textarea
+                        name="message"
+                        placeholder="Message*"
+                        rows={3}
+                        onChange={handleChange}
+                        className="w-full p-3 bg-gray-300 rounded-md outline-none"
+                    />
 
+                    {/* Button */}
+                    <div className="flex justify-center pt-2">
+                        <button
+                            type="submit"
+                            className="bg-teal-700 text-white px-8 py-2 rounded-md hover:bg-teal-800"
+                        >
+                            Submit
+                        </button>
+                    </div>
+
+                </form>
             </div>
         </div>
     );
