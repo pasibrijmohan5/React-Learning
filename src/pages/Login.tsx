@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function App() {
+function Login() {
     const [form, setForm] = useState({
         name: "",
         email: "",
@@ -96,4 +96,4 @@ function App() {
     );
 }
 
-export default App;
+export default Login;
