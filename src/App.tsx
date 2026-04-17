@@ -9,6 +9,29 @@ import { useState } from "react"
 
 const App = () => {
   const [show, setShow] = useState(true);
+  const users = [
+    {
+      id: 1,
+      name: "Brij",
+      role: "Developer",
+      image: "https://i.pravatar.cc/100?img=12",
+      isOnline: true,
+    },
+    {
+      id: 2,
+      name: "Mohan",
+      role: "Designer",
+      image: "https://i.pravatar.cc/100?img=15",
+      isOnline: false,
+    },
+    {
+      id: 3,
+      name: "Ram",
+      role: "Manager",
+      image: "https://i.pravatar.cc/100?img=20",
+      isOnline: true,
+    },
+  ];
   return (
     <>
       <div>
@@ -36,19 +59,16 @@ const App = () => {
 
 
         {show ? (
-          <div className="flex gap-4">
-            <ProfileCard
-              name="Brij"
-              role="Developer"
-              image="https://i.pravatar.cc/100?img=12"
-              isOnline={true}
-            />
-            <ProfileCard
-              name="Mohan"
-              role="Designer"
-              image="https://i.pravatar.cc/100?img=15"
-              isOnline={false}
-            />
+          <div className="flex gap-4 flex-wrap">
+            {users.map((user) => (
+              <ProfileCard
+                key={user.id}
+                name={user.name}
+                role={user.role}
+                image={user.image}
+                isOnline={user.isOnline}
+              />
+            ))}
           </div>
         ) : (
           <p className="text-red-500">Profiles are hidden</p>
