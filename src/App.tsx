@@ -23,7 +23,7 @@ const App = () => {
         <Students name="Brij" age={22} />
       </div>
       <div>
-        <ProfileCard />
+        <ProfileCard name="Brij" role="Developer" image="https://i.pravatar.cc/100" />
       </div>
 
 

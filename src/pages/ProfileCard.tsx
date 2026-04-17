@@ -1,13 +1,18 @@
-function ProfileCard() {
+type Props = {
+    name: string;
+    role: string;
+    image: string;
+};
+function ProfileCard({ name, role, image }: Props) {
     return (
-        <div className="p-4 rounded-2xl shadow-lg bg-white w-64 text-center">
+        <div className="p-2 rounded-4xl shadow-lg bg-white w-70 text-center">
             <img
-                src="https://i.pravatar.cc/100"
-                alt="profile"
+                src={image}
+                alt={name}
                 className="w-24 h-24 mx-auto rounded-full mb-3"
             />
-            <h2 className="text-xl font-bold">John Doe</h2>
-            <p className="text-gray-600">Developer</p>
+            <h2 className="text-xl font-bold">{name}</h2>
+            <p className="text-gray-600">{role}</p>
         </div>
     )
 }
