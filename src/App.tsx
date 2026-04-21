@@ -3,6 +3,7 @@ import Login from "./pages/Login"
 import Students from "./pages/Students"
 import ProfileCard from "./pages/ProfileCard"
 import { useState } from "react"
+import DataFetching from "./pages/DataFetching"
 
 
 
@@ -74,7 +75,9 @@ const App = () => {
           <p className="text-red-500">Profiles are hidden</p>
         )}
       </div>
-
+      <div>
+        <DataFetching />
+      </div>
 
     </>
   )
